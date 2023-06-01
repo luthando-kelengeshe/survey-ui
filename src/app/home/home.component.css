@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.centered-button {
+  margin: 10px;
+  padding: 30px 60px; /* Increase the padding to make the buttons bigger */
+  font-size: 18px; /* Increase the font size to make the text bigger */
+}

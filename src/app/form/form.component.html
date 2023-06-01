@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<div class="container">
+
+    <form ngNativeValidate #form="ngForm" (ngSubmit)="saveResponse()">
+        <div class="row">
+            <div class="col">
+                <h3 class="title">Personal Details</h3>
+
+                <div class="inputBox">
+                    <span>surname :</span>
+                    <input required="" type="text" placeholder="Kelengeshe" id="lastName"
+                    name="lastName" [(ngModel)]="response.lastName">
+                </div>
+                <div class="inputBox">
+                    <span>first name :</span>
+                    <input required type="text" placeholder="Luthando" id="firstName"
+                    name="firstName" [(ngModel)]="response.firstName">
+                </div>
+                <div class="inputBox">
+                    <span>contact number :</span>
+                    <input required type="number" placeholder="0659892471" id="contactNumber"
+                    name="contactNumber" [(ngModel)]="response.contactNumber">
+                </div>
+
+                <div class="inputBox">
+                    <span>age :</span>
+                    <input required type="number" placeholder="23" id="age"
+                    name="age" [(ngModel)]="response.age">
+                </div>
+            </div>
+
+            <div class="col">
+                <h3 class="title">Favourite food</h3>
+
+                <div class="row">
+                    <div class="inputBox">
+                        <input type="checkbox" name="food" *ngFor="let checkbox of checkboxes; let i = index"
+                        [(ngModel)]="checkbox.isChecked"
+                        (change)="updateFoodVariableValue(checkbox)">
+                    </div>
+                    <div class="inputBox">
+                        <p *ngFor="let checkbox of checkboxes; let i = index">{{ checkbox.label }}</p>
+                    </div>
+                </div>
+
+                <h3 class="title">Date</h3>
+
+                <div class="inputBox">
+                    <input type="date" id="surveyDate"
+                    name="surveyDate" [(ngModel)]="response.surveyDate" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+              <table class="table table-sm table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Strongly Agree (1)</th>
+                    <th scope="col">Agree (2)</th>
+                    <th scope="col">Neutral (3)</th>
+                    <th scope="col">Disagree (4)</th>
+                    <th scope="col">Strongly disagree (5)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <th scope="row">I like to eat out</th>
+                      <td><input type="radio" name="eat-out" [(ngModel)]="response.eatOut" value="1"></td>
+                      <td><input type="radio" name="eat-out" [(ngModel)]="response.eatOut" value="2"></td>
+                      <td><input type="radio" name="eat-out" [(ngModel)]="response.eatOut" value="3"></td>
+                      <td><input type="radio" name="eat-out" [(ngModel)]="response.eatOut" value="4"></td>
+                      <td><input type="radio" name="eat-out" [(ngModel)]="response.eatOut" value="5"></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I like to watch movies</th>
+                      <td><input type="radio" name="watch-movie" [(ngModel)]="response.watchMovie" value="1"></td>
+                      <td><input type="radio" name="watch-movie" [(ngModel)]="response.watchMovie" value="2"></td>
+                      <td><input type="radio" name="watch-movie" [(ngModel)]="response.watchMovie" value="3"></td>
+                      <td><input type="radio" name="watch-movie" [(ngModel)]="response.watchMovie" value="4"></td>
+                      <td><input type="radio" name="watch-movie" [(ngModel)]="response.watchMovie" value="5"></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I like to watch TV</th>
+                      <td><input type="radio" name="watch-tv" [(ngModel)]="response.watchTv" value="1"></td>
+                      <td><input type="radio" name="watch-tv" [(ngModel)]="response.watchTv" value="2"></td>
+                      <td><input type="radio" name="watch-tv" [(ngModel)]="response.watchTv" value="3"></td>
+                      <td><input type="radio" name="watch-tv" [(ngModel)]="response.watchTv" value="4"></td>
+                      <td><input type="radio" name="watch-tv" [(ngModel)]="response.watchTv" value="5"></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I like to listen to the radio</th>
+                      <td><input type="radio" name="listen-radio" [(ngModel)]="response.listenToRadio" value="1"></td>
+                      <td><input type="radio" name="listen-radio" [(ngModel)]="response.listenToRadio" value="2"></td>
+                      <td><input type="radio" name="listen-radio" [(ngModel)]="response.listenToRadio" value="3"></td>
+                      <td><input type="radio" name="listen-radio" [(ngModel)]="response.listenToRadio" value="4"></td>
+                      <td><input type="radio" name="listen-radio" [(ngModel)]="response.listenToRadio" value="5"></td>
+                    </tr>
+                  </tbody>
+              </table>
+        </div>
+
+        <input type="submit" value="Submit" class="submit-btn">
+
+    </form>
+
+</div>
+
+</body>
+</html>
